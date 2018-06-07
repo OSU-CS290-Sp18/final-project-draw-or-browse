@@ -12,7 +12,9 @@
 ---
 ### Members
   [Carson Hannibal](https://github.com/carshann) 
+  
   [Peter Ngyuen](https://github.com/nguyepe2) 
+  
   [Jong Park](https://github.com/parkj6) 
 
 
