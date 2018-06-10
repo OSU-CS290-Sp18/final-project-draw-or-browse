@@ -1,31 +1,91 @@
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Draw or Browse!</title>
-    <meta charset="UTF-8">
+<head>
+<title>Draw or Browse!</title>
+<meta charset="UTF-8">
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,400,700">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,400,700">
 
-   <script src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" defer></script>
-    <script src="draw.js" charset="utf-8" defer></script>
-    <script src="browse.js" charset="utf-8" defer></script>
-  </head>
+<script src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" defer></script>
+<script src="src/draw.js" charset="utf-8" defer></script>
+<script src="src/browse.js" charset="utf-8" defer></script>
+</head>
 
-  <body>
-    <header>
-    	<a href="index.html"><h1 class="site-title">Draw or Browse!</h1></a>
-		<nav class="navbar">
-			<ul class="navlist">
-				<li class="navitem dob"><a href="draw.html">or... Draw!</a></li>
-				<li class="navitem search">
-					<input type="text" id="search-bar" placeholder="Search Author, Title or Tags">
-					<button type="button" id="search-button"><i class="fas fa-search"></i></button>
-				</li>
-			</ul>
-		</nav>
-    </header>
+<body>
+<header>
+   <a href="index.html"><h1 class="site-title">Draw or Browse!</h1></a>
+   <nav class="navbar">
+      <ul class="navlist">
+	 <li class="navitem dob"><a href="draw.html">or... Draw!</a></li>
+	 <li class="navitem search">
+	 <input type="text" id="search-bar" placeholder="Search Author, Title or Tags">
+	 <button type="button" id="search-button"><i class="fas fa-search"></i></button>
+	 </li>
+      </ul>
+   </nav>
+</header>
+
+<main class="drawing-container">
 
 
-  </body> 
+<article class="drawing">
+   <div class="image-container">
+      <img class="image" src="http://willkempartschool.com/wp-content/uploads/2015/11/finished-apple-drawing-thumbnail.jpg" />
+   </div>
+   <div class="drawing-text">
+      <div class="text">
+	 Title 1 by User1
+      </div>
+   </div>
+</div>
+</article>
+<article class="drawing">
+<div class="image-container">
+   <img class="image" src="http://willkempartschool.com/wp-content/uploads/2015/11/finished-apple-drawing-thumbnail.jpg" />
+</div>
+<div class="drawing-text">
+   <div class="text">
+      Title 1 by User1
+   </div>
+</div>
+   </div>
+</article>
+<article class="drawing">
+      <div class="image-container">
+<img class="image" src="http://willkempartschool.com/wp-content/uploads/2015/11/finished-apple-drawing-thumbnail.jpg" />
+      </div>
+      <div class="drawing-text">
+<div class="text">
+   Title 1 by User1
+</div>
+      </div>
+   </div>
+</article>
+</main>
+
+<div id="modal-backdrop" class="hidden"></div>
+<div id="create-twit-modal" class="hidden">
+   <div class="modal-dialog">
+
+      <div class="modal-header">
+<button type="button" class="modal-close-button">&times;</button>
+      </div>
+
+      <div class="modal-body">
+<div class="twit-input-element">
+   [image goes here]
+</div>
+      </div>
+
+      <div class="modal-footer">
+<button type="button" class="modal-cancel-button">Edit</button>
+<button type="button" class="modal-accept-button">Delete</button>
+<button type="button" class="modal-accept-button"> <a href="#" download> Download this image</button>
+</div>
+
+   </div>
+</div>
+
+</body> 
 </html>
