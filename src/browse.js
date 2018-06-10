@@ -23,7 +23,24 @@ var createTwitModal = document.getElementById('create-twit-modal');
    // Hide the modal and its backdrop.
    modalBackdrop.classList.add('hidden');
 createTwitModal.classList.add('hidden');
- }
+}
+
+/*
+ *  Password modal stuff
+ */
+
+function showPasswordModal() {
+  var passwordModal = document.getElementById('password-modal');
+   
+  //show password modal
+  passwordModal.classList.remove('hidden');
+}
+
+function hidePasswordModal() {
+    var passwordModal = document.getElementById('password-modal');
+    
+    passwordModal.classList.add('hidden');
+}
 
 
 function parseTwitElem(twitElem) {
@@ -59,7 +76,24 @@ var modalCloseButton = document.querySelector('#create-twit-modal .modal-close-b
     modalCloseButton.addEventListener('click', hideCreateTwitModal);
   }
 
-  var modalCancalButton = document.querySelector('#create-twit-modal .modal-cancel-button');
+var modalCancalButton = document.querySelector('#create-twit-modal .modal-cancel-button');
   if (modalCancalButton) {
     modalCancalButton.addEventListener('click', hideCreateTwitModal);
+  }
+
+//opens the password modal if the user clicks the edit button
+var openPasswordModal = document.querySelector('#create-twit-modal .modal-edit-button'); 
+  if(openPasswordModal) {
+    openPasswordModal.addEventListener('click', showPasswordModal);
+  }
+
+//opens password modal if user clicks the delete button
+var openPasswordModal = document.querySelector('#create-twit-modal .modal-delete-button'); 
+  if(openPasswordModal) {
+    openPasswordModal.addEventListener('click', showPasswordModal);
+  }
+
+var closePasswordModal = document.querySelector('#password-modal .modal-close-button');
+  if (closePasswordModal) {
+    closePasswordModal.addEventListener('click', hidePasswordModal);
   }
