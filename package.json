@@ -5,11 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "express": "^4.16.3",
-<<<<<<< HEAD
-    "mongodb": "^3.0.10",
-=======
     "express-handlebars": "^3.0.0",
->>>>>>> 62f938509b1b1697952a5dbd30b670fed2aa3bdb
+    "mongodb": "^3.0.10",
     "sketchpad": "^0.1.0"
   },
   "devDependencies": {},
