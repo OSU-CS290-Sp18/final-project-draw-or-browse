@@ -4,6 +4,8 @@
   "description": "Empty canvas to draw picture and to browse pictures previously drawn.",
   "main": "server.js",
   "dependencies": {
+    "express": "^4.16.3",
+    "mongodb": "^3.0.10",
     "sketchpad": "^0.1.0"
   },
   "devDependencies": {},

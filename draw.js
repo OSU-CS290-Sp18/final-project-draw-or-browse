@@ -45,6 +45,7 @@ modalButton.addEventListener('click', function(event){
   var modal = document.getElementById('save-sketch-modal');
   backdrop.classList.remove('hidden');
   modal.classList.remove('hidden');
+  var preview = convertCanvasToImage(sketchpad);
 });
 
 var modalCancelButton = document.getElementById('modal-cancel-button');
@@ -55,3 +56,10 @@ modalCancelButton.addEventListener('click', function(event){
   backdrop.classList.add('hidden');
   modal.classList.add('hidden');
 });
+
+// Converts canvas to an image
+function convertCanvasToImage(canvas) {
+	var image = new Image();
+	image.src = canvas.toDataURL();
+	return image;
+}

@@ -417,3 +417,13 @@ button {
 .modal-footer .modal-accept-button:hover {
   background-color: #087dde;
 }
+
+#image-preview{
+  min-height: 111px;
+  min-width: 111px;
+}
+
+#image-preview img{
+  padding: 10px;
+  border: 1px solid #aaa;
+}
