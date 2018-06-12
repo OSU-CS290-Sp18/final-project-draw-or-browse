@@ -37,3 +37,21 @@ var animateButton = document.getElementById('animate-button');
 animateButton.addEventListener('click', function(event){
   sketchpad.animate(10);
 });
+
+var modalButton = document.getElementById('modal-button');
+
+modalButton.addEventListener('click', function(event){
+  var backdrop = document.getElementById('modal-backdrop');
+  var modal = document.getElementById('save-sketch-modal');
+  backdrop.classList.remove('hidden');
+  modal.classList.remove('hidden');
+});
+
+var modalCancelButton = document.getElementById('modal-cancel-button');
+
+modalCancelButton.addEventListener('click', function(event){
+  var backdrop = document.getElementById('modal-backdrop');
+  var modal = document.getElementById('save-sketch-modal');
+  backdrop.classList.add('hidden');
+  modal.classList.add('hidden');
+});

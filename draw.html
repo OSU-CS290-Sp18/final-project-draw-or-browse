@@ -24,11 +24,10 @@
 		</nav>
     </header>
 
-
-
     <main class="sketchpad-container" id="sketchpad-container">
       <canvas class="sketchpad" id="sketchpad"></canvas>
     </main>
+
     <div id="button-container">
       <button id="undo-button">Undo</button>
       <button id="redo-button">Redo</button>
@@ -37,8 +36,41 @@
         <input type="range" min="1" max="30" value = "10" class="slider" id="myRange">
       </div>
       <button type="button" id="animate-button">Animate</button>
-      <button type="button" id="save-button">Save</button>
+      <button type="button" id="modal-button">Save</button>
     </div>
+
+    <div id="modal-backdrop" class="hidden"></div>
+    <div id="save-sketch-modal" class="hidden">
+      <div class="modal-dialog">
+
+        <div class="modal-header">
+          <h3>Save A Sketch</h3>
+          <button type="button" class="modal-close-button">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="sketch-input-element">
+            <label for="title-input">Title</label>
+            <input type="text" id="title-input"></textarea>
+          </div>
+          <div class="sketch-input-element">
+            <label for="author-input">Author</label>
+            <input type="text" id="author-input">
+          </div>
+          <div class="sketch-input-element">
+            <label for="password-input">Password</label>
+            <input type="text" id="password-input">
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="modal-cancel-button" id="modal-cancel-button">Cancel</button>
+          <button type="button" class="modal-accept-button" id="modal-accept-button">Save Sketch</button>
+        </div>
+
+      </div>
+    </div>
+
     <div class="footer"><p>
           Draw or Browse! is a free drawing website where you can draw whatever you want <br> and save the drawing to continue your drawing on any internet connected devices! <br><br>
           Draw! anything you want!<br>
