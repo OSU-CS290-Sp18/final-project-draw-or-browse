@@ -23,6 +23,7 @@ function requestHandler(req, res){
   var localPath = __dirname;
   var validExtentions = {
     ".html" : "text/html",
+    ".htm" : "text/html",
     ".js": "application/javascript",
     ".css": "text/css",
     ".txt": "text/plain",
@@ -38,17 +39,19 @@ function requestHandler(req, res){
   }
   
   if (validMimeType) {
-    localPath += filename;
-    fs.exists(localPath, function(exists) {
+    localFile = localPath +filename;
+    fs.exists(localFile, function(exists) {
       if (exists) {
-        console.log("File Downloaded:" + localPath);
-        getFile(localPath, res, mimeType);
+        console.log("File Downloaded:" + localFile);
         res.statusCode = 200;
       } else {
-        console.log("File not found:" + localPath);
-        res.writeHead(404);
-        res.end();
+        console.log("File not found:" + localFile);
+        //res.writeHead(404);
+        res.statusCode = 404;
+        filename = "/redir/404.html";
+        localFile = localPath +filename;
       } 
+      getFile(localFile, res, mimeType);
     });
   }
   
