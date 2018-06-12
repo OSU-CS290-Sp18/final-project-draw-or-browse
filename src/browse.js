@@ -118,3 +118,30 @@ if (submitPasswordModal) {
    submitPasswordModal.addEventListener('click', handlePasswordSubmit);
    // submitPasswordModal.addEventListener('click', hidePasswordModal);
 }
+
+
+/*
+Handlebar Stuff
+*/
+
+function createphotoCard(title, url, author) {
+  var photoCardSection = document.createElement('article');
+  photoCardSection.classList.add('drawing');
+  
+  var imgContainerDiv = document.createElement('div');
+  imgContainerDiv.classList.add('image-container');
+    photoCardSection.appendChild(imgContainerDiv);
+  
+  var img = document.createElement('img');
+  img.classList.add('thumbnail');
+  img.src = url;
+  img.alt = title;
+  imgContainerDiv.appendChild(img);
+  
+  var titleDiv = document.createElement('div');
+  titleDiv.classList.add('drawing-text')
+  titleDiv.textContent = title +" by " + author;
+  photoCardSection.appendChild(titleDiv);
+  
+  return photoCardSection;
+}

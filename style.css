@@ -427,3 +427,14 @@ button {
   padding: 10px;
   border: 1px solid #aaa;
 }
+
+.thumbnail {
+  width: 200px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.thumbnail:hover {
+  box-shadow: 0 0 20px 1px rgba(255, 204, 0, 0.5)
+}

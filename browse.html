@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,400,700">
 
     <script src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" defer></script>
-    <script src="src/draw.js" charset="utf-8" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.runtime.js"></script>
+
+    <script src="template/drawingCardTemplate.js" charset="utf-8" defer></script>
     <script src="src/browse.js" charset="utf-8" defer></script>
   </head>
 
@@ -27,35 +28,27 @@
     </header>
 
     <main class="drawing-container">
-
-
+      {{#each drawing}}
+        {{> drawing}}
+      {{/each}}
+      
       <article class="drawing">
         <div class="image-container">
-          <img class="image" src="http://willkempartschool.com/wp-content/uploads/2015/11/finished-apple-drawing-thumbnail.jpg" />
+          <img class="thumbnail" src="http://willkempartschool.com/wp-content/uploads/2015/11/finished-apple-drawing-thumbnail.jpg" />
         </div>
         <div class="drawing-text">
           <div class="text">
-            Title 1 by User1
+            Title2 by User2
           </div>
         </div>
       </article>
       <article class="drawing">
         <div class="image-container">
-          <img class="image" src="http://willkempartschool.com/wp-content/uploads/2015/11/finished-apple-drawing-thumbnail.jpg" />
+          <img class="thumbnail" src="http://willkempartschool.com/wp-content/uploads/2015/11/finished-apple-drawing-thumbnail.jpg" />
         </div>
         <div class="drawing-text">
           <div class="text">
-            Title 1 by User1
-          </div>
-        </div>
-      </article>
-      <article class="drawing">
-        <div class="image-container">
-          <img class="image" src="http://willkempartschool.com/wp-content/uploads/2015/11/finished-apple-drawing-thumbnail.jpg" />
-        </div>
-        <div class="drawing-text">
-          <div class="text">
-            Title 1 by User1
+            Title3 by User3
           </div>
         </div>
       </article>
