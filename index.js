@@ -1,4 +1,4 @@
-/* Filename: Index.js 
+/* Filename: Index.js
    description: It serves.
 */
 
@@ -9,10 +9,23 @@ const http = require("http");
 var express = require("express");
 var checkMimeType = true;
 
+var MongoClient = require('mongodb').MongoClient;
+var mongoHost = process.env.MONGO_HOST;
+var mongoPort = process.env.MONGO_PORT || 27017;
+var mongoUser = process.env.MONGO_USER;
+var mongoPassword = process.env.MONGO_PASSWORD;
+var mongoDBName = process.env.MONGO_DB_NAME;
+
+var mongoURL =
+	'mongodb://' + mongoUser + ':' + mongoPassword + '@' +
+	mongoHost + ':' + mongoPort + '/' + mongoDBName;
+
+var mongoDBDatabase;
+
 const app = express();
 
 function requestHandler(req, res){
-  
+
 // Default view = index.html
   if (req.url === '/'){
     var filename = "/index.html";
@@ -31,13 +44,13 @@ function requestHandler(req, res){
     ".gif": "image/gif",
     ".png": "image/png",
   };
-  
+
   var validMimeType = true;
   var mimeType = validExtentions[ext];
   if (checkMimeType){
     validMimeType = validExtentions[ext] != undefined;
   }
-  
+
   if (validMimeType) {
     localFile = localPath +filename;
     fs.exists(localFile, function(exists) {
@@ -50,11 +63,11 @@ function requestHandler(req, res){
         res.statusCode = 404;
         filename = "/redir/404.html";
         localFile = localPath +filename;
-      } 
+      }
       getFile(localFile, res, mimeType);
     });
   }
-  
+
   if (debug) {
     console.log("----------------------");
     console.log("Debug Enabled...");
@@ -82,6 +95,12 @@ function getFile(localPath, res, mimeType) {
 var server = http.createServer(requestHandler);
 var PORT = 8080;
 
-server.listen(PORT, function () {
-  console.log("Server running on port "+PORT+"...");
+MongoClient.connect(mongoURL, function (err, client) {
+  if (err) {
+    throw err;
+  }
+  db = mongoDBDatabase = client.db(mongoDBName);
+  server.listen(PORT, function () {
+    console.log("Server running on port "+PORT+"...");
+  });
 });

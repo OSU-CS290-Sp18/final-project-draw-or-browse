@@ -1,14 +1,14 @@
 {
   "test":{
     "title": "Apple",
-    "picture": "This is a test",
-      "url": "https://www.google.com",
-      "tags": ["test"]
+    "author": "Apple Author",
+    "url": "https://www.google.com",
+    "password": "test"
   },
   "test2":{
     "title": "Banana",
-    "picture": "This is a test2",
-      "url": "https://www.duckduckgo.com",
-      "tags": ["test"]
+    "author": "Banana Author",
+    "url": "https://www.duckduckgo.com",
+    "password": "test"
   }
 }
