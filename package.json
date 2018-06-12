@@ -2,11 +2,16 @@
   "name": "final-project-draw-or-browse",
   "version": "1.0.0",
   "description": "Empty canvas to draw picture and to browse pictures previously drawn.",
-  "main": "server.js",
+  "main": "index.js",
   "dependencies": {
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
     "sketchpad": "^0.1.0"
   },
   "devDependencies": {},
+  "scripts": {
+    "test": "node index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OSU-CS290-Sp18/final-project-draw-or-browse.git"
@@ -16,8 +21,5 @@
   "bugs": {
     "url": "https://github.com/OSU-CS290-Sp18/final-project-draw-or-browse/issues"
   },
-  "homepage": "https://github.com/OSU-CS290-Sp18/final-project-draw-or-browse#readme",
-  "scripts": {
-    "start": "node server.js"
-  }
+  "homepage": "https://github.com/OSU-CS290-Sp18/final-project-draw-or-browse#readme"
 }
