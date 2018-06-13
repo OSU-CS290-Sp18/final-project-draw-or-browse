@@ -2,13 +2,20 @@
   "test":{
     "title": "Apple",
     "author": "Apple Author",
-    "url": "https://www.google.com",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Honeycrisp.jpg/1280px-Honeycrisp.jpg?1528813883629",
     "password": "test"
   },
   "test2":{
     "title": "Banana",
     "author": "Banana Author",
-    "url": "https://www.duckduckgo.com",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Bananas_white_background_DS.jpg/1280px-Bananas_white_background_DS.jpg",
     "password": "test"
+  },
+  "test3":{
+	"title": "Carrot",
+	"author": "Carrot Author",
+	"url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/13-08-31-wien-redaktionstreffen-EuT-by-Bi-frie-037.jpg/1280px-13-08-31-wien-redaktionstreffen-EuT-by-Bi-frie-037.jpg",
+	"password": "test"
+	}
   }
 }

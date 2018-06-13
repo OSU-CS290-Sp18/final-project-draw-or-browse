@@ -1,5 +1,5 @@
-/* Filename: Index.js
-   description: It serves.
+/* Filename: server.js
+   description: It serves you right.
 */
 
 var debug = 1;
@@ -93,13 +93,22 @@ function getFile(localPath, res, mimeType) {
 }
 
 var server = http.createServer(requestHandler);
-var PORT = 8080;
+var PORT = 9154;
+
+app.get('*', function (req, res) {
+    res.status(404);
+    res.send("The page you requested doesn't exist");
+});
+
+//Mongo Stuff 
 
 MongoClient.connect(mongoURL, function (err, client) {
   if (err) {
     throw err;
   }
   db = mongoDBDatabase = client.db(mongoDBName);
+  
+// Starting Server
   server.listen(PORT, function () {
     console.log("Server running on port "+PORT+"...");
   });
