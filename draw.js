@@ -39,28 +39,35 @@ animateButton.addEventListener('click', function(event){
 });
 
 var modalButton = document.getElementById('modal-button');
+var backdrop = document.getElementById('modal-backdrop');
+var modal = document.getElementById('save-sketch-modal');
 
 modalButton.addEventListener('click', function(event){
-  var backdrop = document.getElementById('modal-backdrop');
-  var modal = document.getElementById('save-sketch-modal');
   backdrop.classList.remove('hidden');
   modal.classList.remove('hidden');
-  //var preview = convertCanvasToImage(sketchpad);
+  imagePreview();
 });
 
 var modalCancelButton = document.getElementById('modal-cancel-button');
+var modalTitleText = document.getElementById('title-input');
+var modalAuthorText = document.getElementById('author-input');
+var modalPasswordText = document.getElementById('password-input');
+var modalCloseButton = document.getElementById('modal-close-button');
+var modalPreview = document.getElementById('modal-preview');
 
-modalCancelButton.addEventListener('click', function(event){
-  var backdrop = document.getElementById('modal-backdrop');
-  var modal = document.getElementById('save-sketch-modal');
+modalCancelButton.addEventListener('click', handleModalClose);
+modalCloseButton.addEventListener('click', handleModalClose);
+
+function handleModalClose (event){
+  console.log("== Modal X Clicked");
   backdrop.classList.add('hidden');
   modal.classList.add('hidden');
-});
+  modalTitleText.value = "";
+  modalAuthorText.value = "";
+  modalPasswordText.value = "";
+};
 
-// Converts canvas to an image
-/*function convertCanvasToImage(canvas) {
-*	var image = new Image();
-*	image.src = canvas.toDataURL();
-*	return image;
-*}
-*/
+function imagePreview (event){
+  var dataURL = sketchpad.toDataURL();
+  modalPreview.src = dataURL;
+};
