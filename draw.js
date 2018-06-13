@@ -67,7 +67,9 @@ function handleModalClose (event){
   modalPasswordText.value = "";
 };
 
+var canvas = document.getElementById('sketchpad');
+
 function imagePreview (event){
-  var dataURL = sketchpad.toDataURL();
+  var dataURL = canvas.toDataURL();
   modalPreview.src = dataURL;
 };

@@ -459,11 +459,6 @@ button.sketchbutton{
   min-width: 111px;
 }
 
-#image-preview img{
-  padding: 10px;
-  border: 1px solid #aaa;
-}
-
 .thumbnail {
   width: 200px;
   border: 2px solid #ddd;
@@ -477,4 +472,11 @@ button.sketchbutton{
 
 .modal-accept-button a {
   color: #fff;
+}
+
+#modal-preview {
+  padding: 10px;
+  border: 1px solid #aaa;
+  height: 300px;
+  width: 300px;
 }
