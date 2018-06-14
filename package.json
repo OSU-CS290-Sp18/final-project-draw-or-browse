@@ -16,7 +16,7 @@
   "scripts": {
     "prestart": "npm install --dependencies --save && npm run build",
     "start": "node server.js",
-    "build": "handlebars views/partials/drawing.handlebars -f public/drawingCardTemplate.js"
+    "build": "./mongo-init.sh && handlebars views/partials/drawing.handlebars -f public/drawingCardTemplate.js",
   },
   "repository": {
     "type": "git",
