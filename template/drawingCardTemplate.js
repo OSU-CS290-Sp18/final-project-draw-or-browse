@@ -11,6 +11,6 @@ templates['drawing'] = template({"compiler":[7,">= 4.0.0"],"main":function(conta
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
     + " by "
     + alias4(((helper = (helper = helpers.author || (depth0 != null ? depth0.author : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"author","hash":{},"data":data}) : helper)))
-    + "\r\n  </div>\r\n</article>";
+    + "\r\n  </div>\r\n</article>\r\n";
 },"useData":true});
 })();
