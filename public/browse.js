@@ -58,7 +58,7 @@ function handlePasswordSubmit() {
    }
 }
 
-function parseTwitElem(twitElem) {
+/*function parseTwitElem(twitElem) {
 
    var twit = {};
 
@@ -67,16 +67,19 @@ function parseTwitElem(twitElem) {
 
    return twit;
 }
+*/
 
 
+
+/*var twitElemsCollection = document.getElementsByClassName('drawing');
+for (var i = 0; i < twitElemsCollection.length; i++) {
+   allTwits.push(parseTwitElem(twitElemsCollection[i])); 
+} */
 
 
 var twitElemsCollection = document.getElementsByClassName('drawing');
 for (var i = 0; i < twitElemsCollection.length; i++) {
-   allTwits.push(parseTwitElem(twitElemsCollection[i]));
-}
-
-
+   allTwits.push(twitElemsCollection[i]);
 
 
 var createTwitButton = document.getElementsByClassName("drawing");
@@ -144,4 +147,5 @@ function createphotoCard(title, url, author) {
   photoCardSection.appendChild(titleDiv);
   
   return photoCardSection;
+}
 }
