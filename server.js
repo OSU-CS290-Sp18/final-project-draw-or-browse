@@ -2,7 +2,7 @@
    description: It serves you right.
 */
 
-var debug = 1;
+var debug = 1; //Enable to see status code
 var path = require("path");
 var fs = require("fs");
 const http = require("http");
@@ -67,7 +67,9 @@ function requestHandler(req, res){
       getFile(localFile, res, mimeType);
     });
   }
-
+	/////////////
+	////DEBUG////
+	/////////////
   if (debug) {
     console.log("----------------------");
     console.log("Debug Enabled...");
@@ -99,7 +101,9 @@ app.get('*', function (req, res) {
     res.status(404);
     res.send("The page you requested doesn't exist");
 });
-
+var exphbs = require('express-handlebars');
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
 //Mongo Stuff 
 
 MongoClient.connect(mongoURL, function (err, client) {
