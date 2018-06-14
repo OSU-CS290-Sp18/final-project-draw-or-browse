@@ -25,7 +25,7 @@ var mongoURL =
 'mongodb://' + mongoUser + ':' + mongoPassword + '@' +
 mongoHost + ':' + mongoPort + '/' + mongoDBName;
 
-var mongoDBDatabase;
+var mongoDB = null;
 
 const app = express();
 
@@ -59,7 +59,18 @@ app.get('/draw', function (req, res, next) {
 
 app.post('/draw', function(req, res) {
   console.log("==Recieved a POST Request");
-  console.log("==body is ", req.body);
+  var title = req.body.title;
+  var author = req.body.author;
+  var password = req.body.password;
+  var url = req.body.url;
+  var drawings = mongoDB.collection('drawings');
+  drawings.insertOne({
+    title: title,
+    author: author,
+    password: password,
+    url: url
+  });
+  console.log("==drawing added to mongoDB");
 });
 
 // Load up Browse Page

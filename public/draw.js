@@ -80,13 +80,36 @@ modalAcceptButton.addEventListener('click', handleModalAccept);
 function handleModalAccept(event){
   if(modalAuthorText.value === "" || modalTitleText.value === "" || modalPasswordText.value === ""){
     alert("Oops! Looks like you haven't filled out all the fields!");
-    event.preventDefault();
+    //event.preventDefault();
   }
   else{
     //save image, title, author, and password to the database
-    //var dataURL = canvas.toDataURL();
-    //var myImg = document.getElementById('imgURL');
-    //myImg.value = dataURL;
+    var dataURL = canvas.toDataURL();
+    var myImg = document.getElementById('imgURL');
+    myImg.value = dataURL;
+
+    var request = new XMLHttpRequest();
+    var userTitle = document.getElementById('title-input');
+    var userAuthor = document.getElementById('author-input');
+    var userPassword = document.getElementById('password-input');
+
+    var title = userTitle.value.trim();
+    var author = userAuthor.value.trim();
+    var password = userPassword.value.trim();
+    var url = myImg.value.trim();
+
+    request.open("POST", '/draw');
+
+    var requestBody = JSON.stringify({
+      title: title,
+      author: author,
+      password: password,
+      url: url
+    });
+
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send(requestBody);
+
     handleModalClose();
   }
 };
