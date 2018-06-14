@@ -24,6 +24,7 @@ var mongoDBName = process.env.MONGO_DBNAME;
 var mongoURL =
 'mongodb://' + mongoUser + ':' + mongoPassword + '@' +
 mongoHost + ':' + mongoPort + '/' + mongoDBName;
+console.log("== MongoDB URL: ", mongoURL);
 
 var mongoDBDatabase;
 
