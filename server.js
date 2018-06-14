@@ -9,6 +9,7 @@ var fs = require("fs");
 const http = require("http");
 var express = require("express");
 var exphbs = require("express-handlebars");
+var bodyParser = require('body-parser');
 
 /////////////////
 // Mongo Stuff //
@@ -24,7 +25,7 @@ var mongoURL =
 'mongodb://' + mongoUser + ':' + mongoPassword + '@' +
 mongoHost + ':' + mongoPort + '/' + mongoDBName;
 
-var mongoDBDatabase;
+var mongoDB = null;
 
 const app = express();
 
@@ -35,6 +36,8 @@ var drawingData = require('./photoData');
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
+//Body parser
+app.use(bodyParser.json());
 // Public view
 app.use(express.static('public'));
 
@@ -52,6 +55,22 @@ app.get('/draw', function (req, res, next) {
   res.status(200).render('draw');
   console.log("==Draw Page Handlebar loaded.");
   console.log("==Status Code: " + res.statusCode);
+});
+
+app.post('/draw', function(req, res) {
+  console.log("==Recieved a POST Request");
+  var title = req.body.title;
+  var author = req.body.author;
+  var password = req.body.password;
+  var url = req.body.url;
+  var drawings = mongoDB.collection('drawings');
+  drawings.insertOne({
+    title: title,
+    author: author,
+    password: password,
+    url: url
+  });
+  console.log("==drawing added to mongoDB");
 });
 
 // Load up Browse Page
