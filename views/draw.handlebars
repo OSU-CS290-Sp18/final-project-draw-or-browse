@@ -1,83 +1,53 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>Draw or Browse!</title>
-    <meta charset="UTF-8">
+<!--draw.html-->
+<script src="sketchpad.js" charset="utf-8" defer></script>
+<script src="draw.js" charset="utf-8" defer></script>
 
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous" defer></script>
-    <script src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" defer></script>
-    <script src="sketchpad.js" charset="utf-8" defer></script>
-    <script src="draw.js" charset="utf-8" defer></script>
-  </head>
+<main class="sketchpad-container" id="sketchpad-container">
+  <canvas class="sketchpad" id="sketchpad"></canvas>
+</main>
 
-  <body>
-    <header>
-    	<a href="index.html"><h1 class="site-title">Draw or Browse!</h1></a>
-		<nav class="navbar">
-			<ul class="navlist">
-				<li class="navitem dob"><a href="browse.html">or... Browse</a></li>
-			</ul>
-		</nav>
-    </header>
+<div id="button-container">
+  <button class="sketchbutton" id="undo-button">Undo</button>
+  <button class="sketchbutton" id="redo-button">Redo</button>
+  <input type="color" id="color-button">
+  <div class="slide-container" id="stroke-size">
+    <input type="range" min="1" max="30" value = "10" class="slider" id="myRange">
+  </div>
+  <button type="button" class="sketchbutton" id="animate-button">Animate</button>
+  <button type="button" class="sketchbutton" id="modal-button">Save</button>
+</div>
 
-    <main class="sketchpad-container" id="sketchpad-container">
-      <canvas class="sketchpad" id="sketchpad"></canvas>
-    </main>
+<!--Should this modal be a handlebar?-->
+<div id="modal-backdrop" class="hidden"></div>
+<div id="save-sketch-modal" class="hidden">
+  <div class="modal-dialog">
 
-    <div id="button-container">
-      <button class="sketchbutton" id="undo-button">Undo</button>
-      <button class="sketchbutton" id="redo-button">Redo</button>
-      <input type="color" id="color-button">
-      <div class="slide-container" id="stroke-size">
-        <input type="range" min="1" max="30" value = "10" class="slider" id="myRange">
-      </div>
-      <button type="button" class="sketchbutton" id="animate-button">Animate</button>
-      <button type="button" class="sketchbutton" id="modal-button">Save</button>
+    <div class="modal-header">
+      <h3>Save A Sketch</h3>
+      <button type="button" id="modal-close-button">&times;</button>
     </div>
 
-    <div id="modal-backdrop" class="hidden"></div>
-    <div id="save-sketch-modal" class="hidden">
-      <div class="modal-dialog">
-
-        <div class="modal-header">
-          <h3>Save A Sketch</h3>
-          <button type="button" id="modal-close-button">&times;</button>
-        </div>
-
-        <div class="modal-body">
-          <div id='image-preview'>
-            <img id='modal-preview' src="preview/png">
-          </div>
-          <div class="sketch-input-element">
-            <label for="title-input">Title</label>
-            <input type="text" id="title-input"></textarea>
-          </div>
-          <div class="sketch-input-element">
-            <label for="author-input">Author</label>
-            <input type="text" id="author-input">
-          </div>
-          <div class="sketch-input-element">
-            <label for="password-input">Password</label>
-            <input type="password" id="password-input">
-          </div>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="modal-cancel-button" id="modal-cancel-button">Cancel</button>
-          <button type="button" class="modal-accept-button" id="modal-accept-button">Save Sketch</button>
-        </div>
-
+    <div class="modal-body">
+      <div id='image-preview'>
+        <img id='modal-preview' src="preview/png">
+      </div>
+      <div class="sketch-input-element">
+        <label for="title-input">Title</label>
+        <input type="text" id="title-input">
+      </div>
+      <div class="sketch-input-element">
+        <label for="author-input">Author</label>
+        <input type="text" id="author-input">
+      </div>
+      <div class="sketch-input-element">
+        <label for="password-input">Password</label>
+        <input type="password" id="password-input">
       </div>
     </div>
 
-    <div class="footer"><p>
-          Draw or Browse! is a free drawing website where you can draw whatever you want <br> and save the drawing to continue your drawing on any internet connected devices! <br><br>
-          Draw! anything you want!<br>
-          Browse! any<em>*</em> picture you want! <br>
-
-          <em>*Within our database.</em>
-          </p>
+    <div class="modal-footer">
+      <button type="button" class="modal-cancel-button" id="modal-cancel-button">Cancel</button>
+      <button type="button" class="modal-accept-button" id="modal-accept-button">Save Sketch</button>
     </div>
-  </body>
-</html>
+  </div>
+</div>

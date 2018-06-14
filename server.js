@@ -2,7 +2,7 @@
    description: It serves you right.
    */
 
-var DEBUG = true; // Enable to see Status Code. 
+var DEBUG = true; // Enable to see Status Code.
 var PORT = 9154;
 var path = require("path");
 var fs = require("fs");
@@ -31,11 +31,6 @@ const app = express();
 // use photoData.json as a template
 var drawingData = require('./photoData');
 
-//Just in case things don't work out
-var homePage = fs.readFileSync('public/index.html', 'utf8');
-var drawPage = fs.readFileSync('public/draw.html', 'utf8');
-var browsePage = fs.readFileSync('public/browse.html', 'utf8');
-
 //setting up handlebars
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
@@ -43,12 +38,14 @@ app.set('view engine', 'handlebars');
 // Public view
 app.use(express.static('public'));
 
+/*
 // Load up Index Page
 app.get('/', function (req, res, next) {
   res.status(200).render('index');
   console.log("==Index Page Handlebar loaded.");
   console.log("==Status Code: " + res.statusCode);
 });
+*/
 
 // Load up Draw Page
 app.get('/draw', function (req, res, next) {
@@ -66,12 +63,25 @@ app.get('/browse', function (req, res, next) {
   console.log("==Status Code: " + res.statusCode);
 });
 
+// For every other page, 404
+app.get('*', function (req, res, next) {
+  res.status(404);
+
+  if (req.accepts('html')) {
+    res.render('404');
+//    console.log("==404: Page not found.")
+//    console.log("==Status Code: " + res.statusCode);
+    return;
+  }
+});
+
+
 /////////////////////////////
 // Testing the Browse Page //
 /////////////////////////////
 app.get('/test', function (req, res, next) {
   res.render('browse', {
-    pictureObjects: [ 
+    pictureObjects: [
     {
       title: "Apple",
       author: "Apple Author",
