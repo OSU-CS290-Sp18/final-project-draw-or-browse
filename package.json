@@ -13,9 +13,9 @@
   },
   "devDependencies": {},
   "scripts": {
+    "prestart": "npm install --dependencies --save && npm run build",
     "start": "node server.js",
-    "build": "handlebars handlebars/drawing.handlebars -f template/drawingCardTemplate.js",
-    "prestart": "npm run build"
+    "build": "handlebars views/partials/drawing.handlebars -f public/drawingCardTemplate.js"
   },
   "repository": {
     "type": "git",

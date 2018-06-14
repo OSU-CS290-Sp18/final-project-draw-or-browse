@@ -9,7 +9,6 @@ var fs = require("fs");
 const http = require("http");
 var express = require("express");
 var exphbs = require("express-handlebars");
-var drawingData = require("./photo-init");
 
 /////////////////
 // Mongo Stuff //
@@ -29,6 +28,10 @@ var mongoDBDatabase;
 
 const app = express();
 
+// use photoData.json as a template
+var drawingData = require('./photoData');
+
+//Just in case things don't work out
 var homePage = fs.readFileSync('public/index.html', 'utf8');
 var drawPage = fs.readFileSync('public/draw.html', 'utf8');
 var browsePage = fs.readFileSync('public/browse.html', 'utf8');
@@ -40,24 +43,27 @@ app.set('view engine', 'handlebars');
 // Public view
 app.use(express.static('public'));
 
-// Load up Index Page 
+// Load up Index Page
 app.get('/', function (req, res, next) {
   res.status(200).render('index');
   console.log("==Index Page Handlebar loaded.");
+  console.log("==Status Code: " + res.statusCode);
 });
 
-// Load up Draw Page 
-app.get('/draw.html', function (req, res, next) {
+// Load up Draw Page
+app.get('/draw', function (req, res, next) {
   res.status(200).render('draw');
   console.log("==Draw Page Handlebar loaded.");
+  console.log("==Status Code: " + res.statusCode);
 });
 
-// Load up Browse Page 
-app.get('/browse.html', function (req, res, next) {
+// Load up Browse Page
+app.get('/browse', function (req, res, next) {
   res.status(200).render('browse', {
-    pictureObjects : drawingData
+    pictureObjects: drawingData
   });
   console.log("==Browse Page Handlebar loaded.")
+  console.log("==Status Code: " + res.statusCode);
 });
 
 /////////////////////////////
@@ -65,7 +71,7 @@ app.get('/browse.html', function (req, res, next) {
 /////////////////////////////
 app.get('/test', function (req, res, next) {
   res.render('browse', {
-    test: [ 
+    pictureObjects: [ 
     {
       title: "Apple",
       author: "Apple Author",
