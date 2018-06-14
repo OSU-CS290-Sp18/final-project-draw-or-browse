@@ -80,9 +80,13 @@ modalAcceptButton.addEventListener('click', handleModalAccept);
 function handleModalAccept(event){
   if(modalAuthorText.value === "" || modalTitleText.value === "" || modalPasswordText.value === ""){
     alert("Oops! Looks like you haven't filled out all the fields!");
+    event.preventDefault();
   }
   else{
     //save image, title, author, and password to the database
-    var dataURL = canvas.toDataURL();
+    //var dataURL = canvas.toDataURL();
+    //var myImg = document.getElementById('imgURL');
+    //myImg.value = dataURL;
+    handleModalClose();
   }
 };

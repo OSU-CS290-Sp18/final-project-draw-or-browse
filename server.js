@@ -9,6 +9,7 @@ var fs = require("fs");
 const http = require("http");
 var express = require("express");
 var exphbs = require("express-handlebars");
+var bodyParser = require('body-parser');
 
 /////////////////
 // Mongo Stuff //
@@ -35,6 +36,8 @@ var drawingData = require('./photoData');
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
+//Body parser
+app.use(bodyParser.json());
 // Public view
 app.use(express.static('public'));
 
@@ -52,6 +55,11 @@ app.get('/draw', function (req, res, next) {
   res.status(200).render('draw');
   console.log("==Draw Page Handlebar loaded.");
   console.log("==Status Code: " + res.statusCode);
+});
+
+app.post('/draw', function(req, res) {
+  console.log("==Recieved a POST Request");
+  console.log("==body is ", req.body);
 });
 
 // Load up Browse Page
