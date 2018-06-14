@@ -73,6 +73,8 @@ app.get('*', function (req, res, next) {
 //    console.log("==Status Code: " + res.statusCode);
     return;
   }
+   // default to plain-text. send()
+  res.type('txt').send('404: Page Not found');
 });
 
 
