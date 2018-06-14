@@ -73,3 +73,16 @@ function imagePreview (event){
   var dataURL = canvas.toDataURL();
   modalPreview.src = dataURL;
 };
+
+var modalAcceptButton = document.getElementById('modal-accept-button');
+modalAcceptButton.addEventListener('click', handleModalAccept);
+
+function handleModalAccept(event){
+  if(modalAuthorText.value === "" || modalTitleText.value === "" || modalPasswordText.value === ""){
+    alert("Oops! Looks like you haven't filled out all the fields!");
+  }
+  else{
+    //save image, title, author, and password to the database
+    var dataURL = canvas.toDataURL();
+  }
+};
